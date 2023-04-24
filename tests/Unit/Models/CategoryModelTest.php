@@ -1,0 +1,20 @@
+<?php
+
+namespace Tests\Unit\Models;
+
+use App\Models\Business;
+use App\Models\Category;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class CategoryModelTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_that_category_is_linked_to_many_business(): void
+    {
+        $category = Category::factory()->create();
+        $category->businesses()->sync(Business::factory(10)->create());
+        $this->assertTrue($category->businesses()->count() === 10);
+    }
+}
