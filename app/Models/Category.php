@@ -16,4 +16,8 @@ class Category extends Model
     public function businesses(){
         return $this->belongsToMany(Business::class);
     }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }
