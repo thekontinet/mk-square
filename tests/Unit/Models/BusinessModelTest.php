@@ -5,6 +5,7 @@ namespace Tests\Unit\Models;
 use App\Models\Business;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -29,5 +30,10 @@ class BusinessModelTest extends TestCase
         $business = Business::factory()->create();
         $business->categories()->sync(Category::factory(10)->create());
         $this->assertTrue($business->categories()->count() === 10);
+    }
+
+    public function test_that_business_can_have_list_of_products(){
+        $business = Business::factory()->has(Product::factory(10))->create();
+        $this->assertTrue($business->products()->count() === 10);
     }
 }
