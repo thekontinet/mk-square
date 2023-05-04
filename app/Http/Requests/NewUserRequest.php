@@ -29,6 +29,13 @@ class NewUserRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone' => ['required', 'string', 'max:20', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
+            'agree' => ['required'],
+        ];
+    }
+
+    public function messages(){
+        return [
+            'agree.required' => 'Please agree to out T&C to proceed'
         ];
     }
 }

@@ -12,27 +12,27 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-       
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-       
+
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans antialiased bg-gray-700 text-slate-300 dark:bg-gray-900">
         <x-darkmode-button />
         @stack('stylesheets')
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
+        <div class="flex flex-col items-center min-h-screen pt-6 mx-auto lg:max-w-md sm:justify-center sm:pt-0 dark:bg-gray-900">
+            <div class="pt-4">
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
                 </a>
             </div>
 
-            <div class="w-full mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full">
                 {{ $slot }}
             </div>
         </div>
 
-        
+
         @stack('scripts')
     </body>
 </html>
